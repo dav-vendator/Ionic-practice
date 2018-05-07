@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Shopping cart</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-list>
+    <ion-item>
+        <ion-card>
+            <ion-card-header>
+                <strong>Banana: {{countBanana}}</strong>
+             <hr>
+                <ion-item>
+                    <ion-range  min="0" max="10"[(ngModel)]="countBanana" color="danger" pin="true"></ion-range>
+                </ion-item>
+            </ion-card-header>
+        </ion-card>
+    </ion-item>
+
+    <ion-item>
+        <ion-card>
+            <ion-card-header>
+                <strong>Milk Cartons: {{countMilkCartons}}</strong>
+                <hr>
+                <ion-item>
+                    <ion-range min="0" max="5" [(ngModel)]="countMilkCartons" color="primary" pin="true"></ion-range>
+                </ion-item>
+            </ion-card-header>
+        </ion-card>
+    </ion-item>
+
+    <ion-item>
+        <ion-card>
+            <ion-card-header>
+                <strong>Apples: {{countApples}}</strong>
+                <hr>
+                <ion-item>
+                    <ion-range min="0" max="10" [(ngModel)]="countApples" color="secondary" pin="true"></ion-range>
+                </ion-item>
+            </ion-card-header>
+        </ion-card>
+    </ion-item>
+</ion-list>
+</ion-content>
+<ion-footer padding>
+    <p>
+       <h1>Total items: {{countApples+countBanana+countMilkCartons}}</h1>
+        <button ion-button (click)="generateBill()"> Okay </button>
+        <button ion-button (click)="clearAll()"> Clear all </button>
+</ion-footer>

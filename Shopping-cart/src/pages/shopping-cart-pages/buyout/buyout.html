@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Your Bill</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list inset>
+        <ion-card>
+            <ion-card-header text-center>
+                <strong><h1>Detailed Bill</h1></strong>
+                <hr>
+            </ion-card-header>
+            <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <strong>Item</strong>
+                    </ion-col>
+                    <ion-col col-4>
+                        <strong>Quantity</strong>
+                    </ion-col>
+                    <ion-col col-2>
+                        <strong>Rate</strong>
+                    </ion-col>
+                    <ion-col col-2> 
+                        <strong>Price</strong>
+                    </ion-col>
+                </ion-row>
+                
+                <ion-row *ngFor="let item of items">
+                    <ion-col col-4>
+                        <div> 
+                            <strong>{{item.name}}</strong>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4>
+                        <div>{{item.qty}}</div>
+                    </ion-col>
+                    <ion-col col-2>
+                        <div>{{item.price}}</div>
+                    </ion-col>
+                    <ion-col col-2 >
+                        <div>{{item.Tprice}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <hr>
+            <div style="float:right">
+                <h1 >
+                    <strong>Total:&nbsp;
+                        <span style="color:darkred;">
+                            {{total}}</span>
+                    </strong>
+                </h1>
+            </div>
+            </ion-card-content>
+
+        </ion-card>
+
+    </ion-list>
+</ion-content>
+<ion-footer padding>
+<button ion-button (click)="checkout()">Check out</button>
+<div style="float: right">
+    <button ion-button (click)="goBack()">Reedit order</button>
+</div>
+</ion-footer>
